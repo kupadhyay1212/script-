@@ -1,0 +1,7 @@
+docker config ls | awk '{print $2}' | grep -v NAME > config.txt
+cat config.txt|while read config; do
+docker config inspect $config > /root/config/$config
+done
+
+
+#docker config inspect ngagesso-identityserver-appsettings.json > /root/ngagesso-identityserver-appsettings.json
